@@ -1,3 +1,5 @@
+/* app.css Isha Kothadia 301298827 08/02/2023 */
+
 /* navbar section */
 .ml-auto {
     margin-left: auto;
@@ -5,8 +7,8 @@
 
 .active-tab {
     font-weight: 600;
-    /* background-color: #E45FA4; */
     background-color: #955030;
+    border-radius: 8%;
 }
 
 .logo {
@@ -14,7 +16,6 @@
 }
 
 .navbar-color {
-    /* background-color: #e79fc4; */
     background-color: #AC785F;
     opacity: 0.7;
 }
@@ -38,7 +39,7 @@
 }
 
 .navbar-nav p {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 /* home section */
@@ -57,7 +58,6 @@
 }
 
 /* main section */
-/* background image */
 .bgimage {
     height: 100vh;
     background: url('/Assets/images/IMG_8250.jpeg');
@@ -66,12 +66,10 @@
     position: relative;
     background-color: #EEBCD6;
     margin-top: 10px;
-    /* margin-bottom: 10px; */
 }
 
 .bgimage .jumbotron {
     background-color: #AC785F !important;
-    opacity: 0.8;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -85,8 +83,6 @@
 
 /* About section */
 #about {
-    /* background-color:#EC8FBF ;
-    opacity: 0.7; */
     margin-bottom: 25px;
 }
 
@@ -157,7 +153,6 @@
 .footer {
     padding-top: 10px;
     color: aliceblue;
-    /* background-color: #e79fc4; */
     background-color: #AC785F;
     opacity: 0.7;
 }
@@ -213,7 +208,7 @@
 
 .footer .item.social {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 @media (max-width:991px) {
@@ -249,4 +244,9 @@
     color: aliceblue;
     background-color: #955030;
     padding: 8px 0px;
+}
+
+.footer-text {
+    font-size: 24px;
+    font-weight: 400;
 }
