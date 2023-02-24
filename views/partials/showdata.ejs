@@ -1,0 +1,25 @@
+<% for (var i=0;i<contacts.length;i++){ %>
+    <tr>
+        <td>
+            <%= i + 1 %>
+        </td>
+        <td>
+            <%= contacts[i].name %>
+        </td>
+        <td>
+            <%= contacts[i].number %>
+        </td>
+        <td>
+            <%= contacts[i].email %>
+        </td>
+        <td>
+            <a href="/update-contact?id=<%= contacts[i]._id %>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fa-solid fa-pen-to-square"></i></span>
+            </a>
+
+            <a class="btn border-shadow delete" data-id=<%=contacts[i]._id %>>
+                <span class="text-gradient"><i class="fa-solid fa-trash"></i></span>
+            </a>
+        </td>
+    </tr>
+    <%}%>

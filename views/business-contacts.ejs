@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/main-nav.ejs') %>
+
+        <section id="site-main">
+            <div class="container mt-3">
+                <h1 class="text-center">Business Contact List</h1>
+                <!-- <hr class="hr"> -->
+                <div class="box-nav d-flex-justify-between add-div">
+                    <a href="/add-contact" class="btn border-shadow">
+                        <span class="text-gradient btn-add"><i class="fa-solid fa-user" style="margin-right:7px;"></i>Add New Contact</span>
+                    </a>
+                </div>
+                <!-- form handling -->
+                <form action="/" method="POST">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Number</th>
+                                    <th>Email Address</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%- include('partials/showdata.ejs') %>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <%- include('partials/bottom-nav.ejs') %>
+            <%- include('partials/footer.ejs') %>

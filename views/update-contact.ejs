@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/main-nav.ejs') %>
+
+        <section id="site-main">
+            <div class="container mt-3">
+                <h1 class="text-center">Business Contact List</h1>
+                <!-- <hr class="hr"> -->
+                <div class="box-nav d-flex-justify-between add-div">
+                    <div class="filter">
+                        <a href="/business-contact-list" class="btn btn-add"><i class="fas fa-angle-double-left"
+                                style="margin-right:7px;"></i>All Contacts</a>
+                    </div>
+                </div>
+
+                <div class="form-title text-center">
+                    <h2 class="text-dark">Update Contact</h2>
+                    <span class="text-light">Use the below form to update contact</span>
+                </div>
+
+                <div class="jumbotron jumbotron-form">
+                    <!-- form handling -->
+                    <form id="update-contact" method="POST">
+                        <div class="new-contact">
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="name">Name</label>
+                                    <input type="hidden" name="id" value="<%= contact._id %>">
+                                    <input type="text" class="form-control" name="name" value="<%= contact.name %>"
+                                        placeholder="Enter Name" required>
+                                </div>
+                                <div class="col">
+                                    <label for="name">Number</label>
+                                    <input type="text" class="form-control" name="number" value="<%= contact.number %>"
+                                        placeholder="Enter Number" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="name" class="mt-2">Email Address</label>
+                                <input type="text" class="form-control" name="email" value="<%= contact.email %>"
+                                    placeholder="Enter Email" required>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-save mt-3" style="margin:7px 0; font-weight:bolder;">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <%- include('partials/bottom-nav.ejs') %>
+            <%- include('partials/footer.ejs') %>

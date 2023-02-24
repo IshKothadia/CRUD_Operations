@@ -61,6 +61,16 @@
                           Contact</p>
                       </a>
                   </li>
+
+                  <% if(title=="Business Contact List" ){ %>
+                    <li class="nav-item active-tab">
+                      <%} else { %>
+                    <li class="nav-item">
+                      <% } %>
+                        <a class="nav-link" href="/business-contact-list">
+                          <p class="text-nav">Contacts List</p>
+                        </a>
+                    </li>
       </ul>
     </div>
   </div>
