@@ -3,6 +3,9 @@ var router = express.Router();
 
 const axios = require('axios');
 
+var controller = require('../server/controller/controller');
+var authRoute = require('../server/routes/auth');
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('home', { title: 'Home' });
@@ -15,7 +18,11 @@ router.get('/home', function (req, res, next) {
 
 /* GET Products page. */
 router.get('/products', function (req, res, next) {
-  res.render('products', { title: 'Portfolio' });
+  if (req.isAuthenticated()) {
+    res.render('products', { title: 'Portfolio' });
+  } else {
+    res.render('login', { title: 'Login' });
+  }
 });
 
 /* GET Services page. */
@@ -25,7 +32,11 @@ router.get('/services', function (req, res, next) {
 
 /* GET About Us page. */
 router.get('/about', function (req, res, next) {
-  res.render('about-us', { title: 'About' });
+  if (req.isAuthenticated()) {
+    res.render('about-us', { title: 'About' });
+  } else {
+    res.render('login', { title: 'Login' });
+  }
 });
 
 /* GET Contact Us page. */
@@ -36,13 +47,17 @@ router.get('/contact', function (req, res, next) {
 /* GET Business Contact List page. */
 router.get('/business-contact-list', function (req, res, next) {
   // get request to /api/contacts
-  axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts')
-    .then(function (response) {
-      res.render('business-contacts', { title: 'Business Contact List', contacts: response.data });
-    })
-    .catch(err => {
-      res.send(err)
-    });
+  if (req.isAuthenticated()) {
+    axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts')
+      .then(function (response) {
+        res.render('business-contacts', { title: 'Business Contact List', contacts: response.data });
+      })
+      .catch(err => {
+        res.send(err)
+      });
+  } else {
+    res.render('login', { title: 'Login' });
+  }
 });
 
 /* add user. */
@@ -60,5 +75,21 @@ router.get('/update-contact', function (req, res, next) {
       res.send(err)
     })
 });
+
+/* GET Login page. */
+router.get('/login', function (req, res, next) {
+  res.render('login', { title: 'Login' });
+});
+
+router.post('/login', function(req, res){
+  authRoute.login
+});
+
+router.post('/logout', function(req, res){
+  authRoute.logout
+});
+
+// router.post('/login', authRoute.login);
+// router.get('/logout', authRoute.logout);
 
 module.exports = router;

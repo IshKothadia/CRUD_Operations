@@ -20,57 +20,81 @@
               </a>
           </li>
 
-          <% if(title=="About" ){ %>
-            <li class="nav-item active-tab">
-              <%} else { %>
-            <li class="nav-item">
-              <% } %>
-                <a class="nav-link" href="/about">
-                  <p class="text-nav">About</p>
-                </a>
-            </li>
-
-            <% if(title=="Portfolio" ){ %>
+          <% if (isAuthenticated){ %>
+            <% if(title=="About" ){ %>
               <li class="nav-item active-tab">
                 <%} else { %>
               <li class="nav-item">
                 <% } %>
-                  <a class="nav-link" href="/products">
-                    <p class="text-nav">Portfolio
-                    </p>
+                  <a class="nav-link" href="/about">
+                    <p class="text-nav">About</p>
                   </a>
               </li>
+              <%}%>
 
-              <% if(title=="Services" ){ %>
-                <li class="nav-item active-tab">
-                  <%} else { %>
-                <li class="nav-item">
-                  <% } %>
-                    <a class="nav-link" href="/services">
-                      <p class="text-nav">Services</p>
-                    </a>
-                </li>
-
-                <% if(title=="Contact" ){ %>
-                  <li class="nav-item active-tab">
-                    <%} else { %>
-                  <li class="nav-item">
-                    <% } %>
-                      <a class="nav-link" href="/contact">
-                        <p class="text-nav">
-                          Contact</p>
-                      </a>
-                  </li>
-
-                  <% if(title=="Business Contact List" ){ %>
+                <% if (isAuthenticated){ %>
+                  <% if(title=="Portfolio" ){ %>
                     <li class="nav-item active-tab">
                       <%} else { %>
                     <li class="nav-item">
                       <% } %>
-                        <a class="nav-link" href="/business-contact-list">
-                          <p class="text-nav">Contacts List</p>
+                        <a class="nav-link" href="/products">
+                          <p class="text-nav">Portfolio
+                          </p>
                         </a>
                     </li>
+                    <%}%>
+
+                      <% if(title=="Services" ){ %>
+                        <li class="nav-item active-tab">
+                          <%} else { %>
+                        <li class="nav-item">
+                          <% } %>
+                            <a class="nav-link" href="/services">
+                              <p class="text-nav">Services</p>
+                            </a>
+                        </li>
+
+                        <% if(title=="Contact" ){ %>
+                          <li class="nav-item active-tab">
+                            <%} else { %>
+                          <li class="nav-item">
+                            <% } %>
+                              <a class="nav-link" href="/contact">
+                                <p class="text-nav">
+                                  Contact</p>
+                              </a>
+                          </li>
+
+                          <% if (isAuthenticated){ %>
+                            <% if(title=="Business Contact List" ){ %>
+                              <li class="nav-item active-tab">
+                                <%} else { %>
+                              <li class="nav-item">
+                                <% } %>
+                                  <a class="nav-link" href="/business-contact-list">
+                                    <p class="text-nav">Contacts List</p>
+                                  </a>
+                              </li>
+                              <%}%>
+
+                                <% if (isAuthenticated){ %>
+                                  <li class="nav-item active-tab">
+                                    <a class="nav-link" href="/logout">
+                                      <p class="text-nav">Logout</p>
+                                    </a>
+                                  </li>
+                                  <% } else { %>
+                                    <% if(title=="Login" ){ %>
+                                      <li class="nav-item active-tab">
+                                        <%} else { %>
+                                      <li class="nav-item">
+                                        <% } %>
+                                          <a class="nav-link" href="/login">
+                                            <p class="text-nav">Login</p>
+                                          </a>
+                                      </li>
+                                      <% } %>
       </ul>
     </div>
   </div>
