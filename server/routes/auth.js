@@ -20,7 +20,6 @@ passport.deserializeUser(function (id, done) {
 
 // login user
 exports.login = (req, res, next) => {
-    debugger;
     const user = new User({
         username: req.body.username,
         password: req.body.password
