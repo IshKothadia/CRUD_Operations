@@ -16,7 +16,7 @@ $("#update-contact").submit(function (event) {
     var request = {
         // http://localhost:3000/api/contacts/${data.id}
         // "url": `https://portfoliowebsite-ishakothadia.onrender.com/api/contacts/${data.id}`,
-        "url":`https://portfoliowebsite-ishakothadia.onrender.com/api/contacts/${data.id}`,
+        "url":`https://portfoliowebsite-ishakothadia-contactlist.onrender.com/api/contacts/${data.id}`,
         "method": "PUT",
         "data": data
     }
@@ -33,7 +33,7 @@ if (window.location.pathname == "/business-contact-list") {
     $onDelete.click(function () {
         var id = $(this).attr("data-id");
         var request = {
-            "url": `https://portfoliowebsite-ishakothadia.onrender.com/api/contacts/${id}`,
+            "url": `https://portfoliowebsite-ishakothadia-contactlist.onrender.com/api/contacts/${id}`,
             // "url":`http://localhost:3000/api/contacts/${id}`,
             "method": "DELETE",
         }

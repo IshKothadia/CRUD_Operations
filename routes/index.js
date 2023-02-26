@@ -51,7 +51,7 @@ router.get('/business-contact-list', function (req, res, next) {
     // https://portfoliowebsite-ishakothadia.onrender.com/api/contacts
     // http://localhost:3000/api/contacts
     
-    axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts')
+    axios.get('https://portfoliowebsite-ishakothadia-contactlist.onrender.com/api/contacts')
       .then(function (response) {
         res.render('business-contacts', { title: 'Business Contact List', contacts: response.data });
       })
@@ -73,7 +73,7 @@ router.get('/update-contact', function (req, res, next) {
   // https://portfoliowebsite-ishakothadia.onrender.com/api/contacts
 // http://localhost:3000/api/contacts
 
-  axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts', { params: { id: req.query.id } })
+  axios.get('https://portfoliowebsite-ishakothadia-contactlist.onrender.com/api/contacts', { params: { id: req.query.id } })
     .then(function (userData) {
       res.render('update-contact', { contact: userData.data, title: 'Update Contact' })
     })
