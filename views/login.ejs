@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
     <%- include('partials/main-nav.ejs') %>
-        <div class="container">
+        <!-- <div class="container">
             <div class="jumbotron mt-5 jumbotron-form mb-5">
                 <div class="col-md-8 m-auto">
                     <form action="/login" method="POST">
@@ -19,6 +19,31 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-save" style="font-weight:bolder">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="container">
+            <div class="jumbotron mt-5 jumbotron-form mb-5">
+                <div class="col-md-8 m-auto">
+                    <div class="text-center">
+                        <h3 class="mb-4">Login</h3>
+                    </div>
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                aria-describedby="emailHelp" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input name="password" type="password" id="password" class="form-control"
+                                placeholder="Password" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-save" style="margin-top: 10px; font-weight: bolder;">Sign In</button>
                         </div>
                     </form>
                 </div>

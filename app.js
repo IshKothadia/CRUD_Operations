@@ -6,12 +6,12 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let bodyParser = require('body-parser');
-const controller = require('./server/controller/controller');
-const passport = require('passport');
-const session = require('express-session');
-const authRoutes = require('./server/routes/auth');
-
-const connectDb = require('./server/database/connection'); 
+let controller = require('./server/controller/controller');
+let passport = require('passport');
+let session = require('express-session');
+// const authRoutes = require('./server/controller/auth');
+let flash = require('connect-flash');
+let connectDb = require('./server/database/connection'); 
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -39,7 +39,9 @@ app.use(session({
   saveUninitialized:false
 }));
 
-app.use('/', authRoutes);
+// app.use('/', authRoutes);
+
+app.use(flash());
 
 //initialize passport
 app.use(passport.initialize());
@@ -51,6 +53,15 @@ app.use(function(req, res, next){
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
 });
+
+
+// app.post('/login', function(){
+//   authRoutes.login
+// });
+
+// app.post('/logout', function(){
+//   authRoutes.logout
+// });
 
 //API
 app.post('/api/contacts',controller.create);

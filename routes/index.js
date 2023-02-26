@@ -4,7 +4,7 @@ var router = express.Router();
 const axios = require('axios');
 
 var controller = require('../server/controller/controller');
-var authRoute = require('../server/routes/auth');
+var authRoute = require('../server/controller/auth');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -48,6 +48,9 @@ router.get('/contact', function (req, res, next) {
 router.get('/business-contact-list', function (req, res, next) {
   // get request to /api/contacts
   if (req.isAuthenticated()) {
+    // https://portfoliowebsite-ishakothadia.onrender.com/api/contacts
+    // http://localhost:3000/api/contacts
+    
     axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts')
       .then(function (response) {
         res.render('business-contacts', { title: 'Business Contact List', contacts: response.data });
@@ -67,6 +70,9 @@ router.get('/add-contact', function (req, res, next) {
 
 /* update user. */
 router.get('/update-contact', function (req, res, next) {
+  // https://portfoliowebsite-ishakothadia.onrender.com/api/contacts
+// http://localhost:3000/api/contacts
+
   axios.get('https://portfoliowebsite-ishakothadia.onrender.com/api/contacts', { params: { id: req.query.id } })
     .then(function (userData) {
       res.render('update-contact', { contact: userData.data, title: 'Update Contact' })
@@ -81,15 +87,15 @@ router.get('/login', function (req, res, next) {
   res.render('login', { title: 'Login' });
 });
 
-router.post('/login', function(req, res){
-  authRoute.login
-});
+// router.post('/login', function(req, res){
+//   authRoute.login
+// });
 
-router.post('/logout', function(req, res){
-  authRoute.logout
-});
+// router.post('/logout', function(req, res){
+//   authRoute.logout
+// });
 
-// router.post('/login', authRoute.login);
-// router.get('/logout', authRoute.logout);
+router.post('/login', authRoute.login);
+router.get('/logout', authRoute.logout);
 
 module.exports = router;

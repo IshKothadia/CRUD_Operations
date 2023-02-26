@@ -1,4 +1,4 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 const passport = require('passport');
 
 //user model
@@ -8,15 +8,19 @@ const User = require('../model/user');
 passport.use(User.createStrategy());
 
 // serialize and deserialize user
-passport.serializeUser(function (user, done) {
-    done(null, user.id);
-});
+// passport.serializeUser(function (user, done) {
+//     done(null, user.id);
+// });
 
-passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-        done(err, user)
-    });
-});
+passport.serializeUser(User.serializeUser());
+
+passport.deserializeUser(User.deserializeUser());
+
+// passport.deserializeUser(function (id, done) {
+//     User.findById(id, function (err, user) {
+//         done(err, user)
+//     });
+// });
 
 // login user
 exports.login = (req, res, next) => {
@@ -60,4 +64,4 @@ exports.logout = (req, res, next)=>{
     });
 };
 
-module.exports = router;
+// module.exports = router;
