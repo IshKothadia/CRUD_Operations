@@ -1,5 +1,6 @@
+// user.js Isha Kothadia 301298827 26/02/2023 
+
 const mongoose = require('mongoose');
-// const passportLocal = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 // create user schema

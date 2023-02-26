@@ -1,3 +1,5 @@
+//  index.js Isha Kothadia 301298827 26/02/2023 
+
 $("#add-contact").submit(function (event) {
     alert("Data Inserted successfully");
 })
